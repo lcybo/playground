@@ -1,0 +1,22 @@
+System.setProperty 'line.separator', '\n'
+
+apply plugin: 'java'
+sourceCompatibility = '10'
+targetCompatibility = '10'
+compileJava.options.encoding = 'utf-8'
+compileJava.options.compilerArgs.add '-parameters'
+repositories {
+	jcenter()
+}
+
+dependencies {
+	implementation 'org.jctools:jctools-core:2.1.2'
+	testImplementation "org.junit.jupiter:junit-jupiter-api:5.2.0"
+	testRuntimeOnly    "org.junit.jupiter:junit-jupiter-engine:5.2.0"
+}
+tasks.withType( JavaCompile) { options.encoding = 'utf-8'}
+
+test { useJUnitPlatform()}
+
+apply plugin: 'idea'
+
